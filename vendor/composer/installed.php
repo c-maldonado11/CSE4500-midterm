@@ -1,15 +1,24 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'v9.1.2',
-        'version' => '9.1.2.0',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => 'f3bc0e82e65f01d31a893805c0c0f95def630c35',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
     'versions' => array(
+        'almasaeed2010/adminlte' => array(
+            'pretty_version' => 'v3.2.0',
+            'version' => '3.2.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../almasaeed2010/adminlte',
+            'aliases' => array(),
+            'reference' => 'bd4d9c72931f1dd28601b6bfb387554a381ad540',
+            'dev_requirement' => false,
+        ),
         'brick/math' => array(
             'pretty_version' => '0.9.3',
             'version' => '0.9.3.0',
@@ -358,6 +367,15 @@
                 0 => 'v9.5.1',
             ),
         ),
+        'jeroennoten/laravel-adminlte' => array(
+            'pretty_version' => 'v3.8.0',
+            'version' => '3.8.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../jeroennoten/laravel-adminlte',
+            'aliases' => array(),
+            'reference' => '5ba9fcebbdd889e4d05fdcfba927ffe1335f91ee',
+            'dev_requirement' => false,
+        ),
         'kodova/hamcrest-php' => array(
             'dev_requirement' => true,
             'replaced' => array(
@@ -374,12 +392,12 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'v9.1.2',
-            'version' => '9.1.2.0',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => 'f3bc0e82e65f01d31a893805c0c0f95def630c35',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -736,8 +754,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(
