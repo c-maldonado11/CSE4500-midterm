@@ -7,13 +7,27 @@
 @stop
 
 @section('content')
-    <p>Content here</p>
-@stop
+<div class="card">
+  <div class="card-body">
+    <table id="table" class="table table-bordered">
+      <thead>
+        <tr>
+         <th style="width: 15px">Invoice #</th> <th>Name</th> <th>Email</th> <th>Specs</th> <th style="width: 30px">Manufacture</th> <th style="width: 50px">Category</th> <th style="width: 30px">Price</th> <th style="width: 50px">Purchase Date</th> <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
 
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+      </tbody>
+    </table>
+  </div>
+</div>
+
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+<script>
+    $(document).ready(function() {
+        $('#table').DataTable();
+    } );
+</script>
 @stop
