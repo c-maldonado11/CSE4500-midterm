@@ -242,14 +242,14 @@ return [
             'text' => 'search',
         ],     
         [
-            'text' => 'To Do\'s',
-            'url'  => 'todos',
-            'icon' => 'fas fa-fw fa-file',
+            'text' => 'Equipment',
+            'url'  => 'equipment',
+            'icon' => 'far fa-keyboard',
         ],
         [         
-            'text' => 'Calendar',
-            'url'  => 'calendar',
-            'icon' => 'fas fa-fw fa-calendar-alt',
+            'text' => 'Contact Info',
+            'url'  => 'contact-info',
+            'icon' => 'far fa-user-circle',
         ],
     ],
 
