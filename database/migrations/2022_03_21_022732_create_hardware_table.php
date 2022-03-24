@@ -14,6 +14,8 @@ return new class extends Migration
             $table->string('model');
             $table->string('manufacturer');
             $table->string('category');
+            $table->string('note');
+            $table->timestamps();
         });
     }
 

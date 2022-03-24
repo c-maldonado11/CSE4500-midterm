@@ -9,16 +9,19 @@ return new class extends Migration
 
     public function up()
     {
-        Schema::create('purchaseinfos', function (Blueprint $table) {
+        Schema::create('purchase', function (Blueprint $table) {
             $table->id();
+            $table->integer('invoice');
             $table->integer('price');
             $table->date('purchase_date');
+            $table->foreignId('hardware_id')->constrained();
+            $table->timestamps();
         });
     }
 
 
     public function down()
     {
-        Schema::dropIfExists('purchaseinfos');
+        Schema::dropIfExists('purchase');
     }
 };

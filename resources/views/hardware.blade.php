@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Equipment')
+@section('title', 'Hardware')
 
 @section('content_header')
     <h1>Header</h1>
@@ -17,11 +17,21 @@
       </thead>
       <tbody>
 
+      @foreach($hardware AS $hardware)
+        <tr>
+          <td>{{ $hardware->id }}</td>
+          <td>{{ $hardware->model }}</td>
+          <td>{{ $hardware->manufacturer }}</td>
+          <td>{{ $hardware->category }}</td>
+          <td>{{ $hardware->note }}</td>
+        </tr>
+        @endforeach
+
       </tbody>
     </table>
   </div>
 </div>
-
+<a href="{{ route('hardware.create') }} " class="btn btn-primary" >Create</a>
 @stop
 
 @section('js')

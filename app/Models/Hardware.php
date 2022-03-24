@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Todo extends Model
+class Hardware extends Model
 {
-    protected $fillable = ['title','progress'];
-    protected $table = 'equipment';
+    protected $fillable = ['model','manufacturer','category','note'];
+    protected $table = 'hardware';
     use HasFactory;
 }

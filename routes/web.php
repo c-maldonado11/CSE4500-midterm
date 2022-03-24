@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HardwareController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/equipment', function () {
-    return view('equipment');
-});
+Route::resource('/hardware', HardwareController::class);
+
 
 Route::get('/contact-info', function () {
     return view('contact-info');
