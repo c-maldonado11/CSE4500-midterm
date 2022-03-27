@@ -19,7 +19,8 @@ Route::get('/', function () {
 
 Route::resource('/hardware', HardwareController::class);
 
-
 Route::get('/contact-info', function () {
     return view('contact-info');
 });
+
+Route::get('delete/{id}','App\Http\Controllers\HardwareController@destroy');

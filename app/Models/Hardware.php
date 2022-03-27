@@ -9,5 +9,10 @@ class Hardware extends Model
 {
     protected $fillable = ['model','manufacturer','category','note'];
     protected $table = 'hardware';
+    public function user()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
     use HasFactory;
 }

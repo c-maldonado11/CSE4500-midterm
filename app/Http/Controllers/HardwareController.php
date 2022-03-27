@@ -51,18 +51,29 @@ class HardwareController extends Controller
 
     public function edit($id)
     {
-        //
+        $hardware= Hardware::find($id); 
+        return view('hardware.edit',compact('hardware'));
     }
 
 
     public function update(Request $request, $id)
     {
-        //
+        $hardware= Hardware::find($id);
+        $hardware->model = $request->input('model');
+        $hardware->manufacturer = $request->input('manufacturer');
+        $hardware->category = $request->input('category');
+        $hardware->note = $request->input('note');
+        $hardware->update();
+        return redirect('/hardware')->with('status',"Update Successful");
     }
 
 
     public function destroy($id)
     {
-        //
+        {
+            $hardware = Hardware::find($id);
+            $hardware->delete();
+            return redirect('/hardware')->with('status',"Data Deleted Successfuly");
+       }
     }
 }

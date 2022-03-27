@@ -243,7 +243,7 @@ return [
         ],     
         [
             'text' => 'Equipment',
-            'url'  => 'equipment',
+            'url'  => 'hardware',
             'icon' => 'far fa-keyboard',
         ],
         [         
