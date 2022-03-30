@@ -16,7 +16,7 @@ use App\Http\Controllers\ManufacturerController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-URL::forceSchene('https');
+URL::forceScheme('https');
 
 Route::get('/', function () {
     return view('welcome');
