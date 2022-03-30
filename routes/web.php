@@ -5,6 +5,8 @@ use App\Http\Controllers\HardwareController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ManufacturerController;
+use App\Http\Controllers\NoteController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +18,7 @@ use App\Http\Controllers\ManufacturerController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-URL::forceScheme('https');
+// URL::forceScheme('https');
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,3 +35,9 @@ Route::resource('/customer', CustomerController::class);
 Route::resource('/manufacturer', ManufacturerController::class);
 
 Route::resource('/invoice', InvoiceController::class);
+
+Route::resource('/note', NoteController::class);
+
+Route::delete('/invoice/{invoiceID}/{itemID}', [InvoiceController::class, 'deleteItem'])->name('hardware.deleteItem');
+
+Route::post('/invoice/{invoiceID}/{itemID}', [InvoiceController::class, 'addItem'])->name('hardware.addItem');

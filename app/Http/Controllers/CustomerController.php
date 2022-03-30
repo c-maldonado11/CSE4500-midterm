@@ -42,14 +42,27 @@ class CustomerController extends Controller
         return view('customer.detail', compact('customer'));
     }
 
-    public function edit($id)
+    public function edit($id, FormBuilder $formBuilder)
     {
-        //
+        $customer = Customer::find($id);
+
+        $form = $formBuilder->create(CustomerForm::class, [
+            'method' => 'PUT',
+            'url' => route('customer.update', ['customer'=>$customer->id]),
+            'model' => $customer,
+        ]);
+        return view('customer.create', compact('form'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, FormBuilder $formBuilder)
     {
-        //
+        $form = $formBuilder->create(CustomerForm::class);
+        $form->redirectIfNotValid();
+
+        $customer = Customer::find($id);
+        $customer->update($form->getFieldValues());
+
+        return redirect('/customer/' . $id);
     }
 
     public function destroy($id)

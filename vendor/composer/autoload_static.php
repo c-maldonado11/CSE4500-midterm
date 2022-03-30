@@ -29,9 +29,9 @@ class ComposerStaticInit27f5c02ce68ad2b2f350a030e9248ec3
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
-        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
         'd9fc00ffac3dc4b7868e8efb0efdc85c' => __DIR__ . '/..' . '/kris/laravel-form-builder/src/helpers.php',
     );
 
@@ -537,7 +537,6 @@ class ComposerStaticInit27f5c02ce68ad2b2f350a030e9248ec3
         'App\\Http\\Controllers\\HardwareController' => __DIR__ . '/../..' . '/app/Http/Controllers/HardwareController.php',
         'App\\Http\\Controllers\\InvoiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/InvoiceController.php',
         'App\\Http\\Controllers\\ManufacturerController' => __DIR__ . '/../..' . '/app/Http/Controllers/ManufacturerController.php',
-        'App\\Http\\Controllers\\PurchasesController' => __DIR__ . '/../..' . '/app/Http/Controllers/PurchasesController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
@@ -552,7 +551,6 @@ class ComposerStaticInit27f5c02ce68ad2b2f350a030e9248ec3
         'App\\Models\\Hardware' => __DIR__ . '/../..' . '/app/Models/Hardware.php',
         'App\\Models\\Invoice' => __DIR__ . '/../..' . '/app/Models/Invoice.php',
         'App\\Models\\Manufacturer' => __DIR__ . '/../..' . '/app/Models/Manufacturer.php',
-        'App\\Models\\Notes' => __DIR__ . '/../..' . '/app/Models/Notes.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
