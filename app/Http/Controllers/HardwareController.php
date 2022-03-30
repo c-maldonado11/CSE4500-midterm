@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Hardware;
+use Kris\LaravelFormBuilder\FormBuilder;
+use App\Forms\HardwareForm;
+
 
 class HardwareController extends Controller
 {
@@ -11,69 +14,47 @@ class HardwareController extends Controller
     public function index()
     {
         $hardware = Hardware::all();
-        return view('hardware',compact('hardware'));
-
+        return view('hardware.list', compact('hardware'));
     }
 
-
-    public function create()
+    public function create(FormBuilder $formBuilder)
     {
-        return view('hardware.create');
+        $form = $formBuilder->create(HardwareForm::class, [
+            'method' => 'POST',
+            'url' => route('hardware.store')
+        ]);
+        return view('hardware.create', compact('form'));
     }
 
-
-    public function store(Request $request)
+    public function store(FormBuilder $formBuilder)
     {
-        $validated = $request->validate([
-            'model' => 'required',
-            'manufacturer' => 'required',
-            'category' => 'required',
-            'note' => 'required'
-       ]);
-
-       $hardware = Hardware::create([ 
-            'model' => $request->model,
-            'manufacturer' => $request->manufacturer,
-            'category' => $request->category,
-            'note' => $request->note
-       ]);
-
-       return $this->index();
+        $form = $formBuilder->create(HardwareForm::class);
+        $form->redirectIfNotValid();
+        Hardware::create($form->getFieldValues());
+        return $this->index();
     }
-
 
     public function show($id)
     {
-        $hardware= Hardware::find($id); 
-        return view('hardware.show',compact('hardware'));
+            $hardware = Hardware::find($id);
+            // Lazy Loading
+            $hardware->invoices;
+            return view('hardware.detail', compact('hardware'));
     }
-
 
     public function edit($id)
     {
-        $hardware= Hardware::find($id); 
-        return view('hardware.edit',compact('hardware'));
+        //
     }
-
 
     public function update(Request $request, $id)
     {
-        $hardware= Hardware::find($id);
-        $hardware->model = $request->input('model');
-        $hardware->manufacturer = $request->input('manufacturer');
-        $hardware->category = $request->input('category');
-        $hardware->note = $request->input('note');
-        $hardware->update();
-        return redirect('/hardware')->with('status',"Update Successful");
+        //
     }
-
 
     public function destroy($id)
     {
-        {
-            $hardware = Hardware::find($id);
-            $hardware->delete();
-            return redirect('/hardware')->with('status',"Data Deleted Successfuly");
-       }
+        Hardware::destroy($id);
+        return redirect('/hardware');
     }
 }

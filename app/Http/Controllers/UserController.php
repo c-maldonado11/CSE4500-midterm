@@ -27,15 +27,13 @@ class UserController extends Controller
         $validated = $request->validate([
             'fname' => 'required',
             'lname' => 'required',
-            'contact_info' => 'required',
-            'hardware_id' => 'required'
+            'contact_info' => 'required'
        ]);
 
        $user = User::create([ 
             'fname' => $request->fname,
             'lname' => $request->lname,
             'contact_info' => $request->contact_info,
-            'hardware_id' => $request->hardware_id
        ]);
 
        return $this->index();

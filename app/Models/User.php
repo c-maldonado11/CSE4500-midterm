@@ -9,7 +9,7 @@ class User extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
     protected $table = 'user';
-    protected $fillable = ['fname','lname','contact_info','hardware_id'];
+    protected $fillable = ['fname','lname','contact_info'];
 
     protected $hidden = ['password','remember_token'];
 

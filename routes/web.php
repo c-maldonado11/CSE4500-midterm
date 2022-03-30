@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HardwareController;
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ManufacturerController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,4 +27,8 @@ Route::get('/contact-info', function () {
     return view('contact-info');
 });
 
-Route::get('delete/{id}','App\Http\Controllers\HardwareController@destroy');
+Route::resource('/customer', CustomerController::class);
+
+Route::resource('/manufacturer', ManufacturerController::class);
+
+Route::resource('/invoice', InvoiceController::class);

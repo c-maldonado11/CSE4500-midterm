@@ -14,7 +14,6 @@ return new class extends Migration
             $table->string('fname');
             $table->string('lname');
             $table->string('contact');
-            $table->foreignId('hardware_id')->constrained();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

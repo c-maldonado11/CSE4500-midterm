@@ -9,19 +9,19 @@ return new class extends Migration
 
     public function up()
     {
-        Schema::create('hardware', function (Blueprint $table) {
+        Schema::create('manufacturers', function (Blueprint $table) {
             $table->id();
-            $table->string('model');
-            $table->string('manufacturer');
-            $table->string('category');
-            $table->string('note');
             $table->timestamps();
+            $table->string('name');
+            $table->string('tech_email');
+            $table->string('tech_phone');
+            $table->string('sales_email');
+            $table->string('sales_phone');
         });
     }
 
-
     public function down()
     {
-        Schema::dropIfExists('hardware');
+        Schema::dropIfExists('manufacturers');
     }
 };
