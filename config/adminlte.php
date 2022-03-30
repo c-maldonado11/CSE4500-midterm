@@ -242,7 +242,7 @@ return [
             'text' => 'search',
         ],     
         [
-            'text' => 'All Equipment',
+            'text' => 'All Hardware',
             'url'  => 'hardware',
             'icon' => 'far fa-keyboard',
         ],

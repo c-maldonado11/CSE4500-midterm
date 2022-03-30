@@ -24,8 +24,8 @@
                 </a>
             </dd>
 
-            <dt class="col-sm-3">GHz</dt>
-            <dd class="col-sm-9">{{ $hardware->ghz }}</dd>
+            <dt class="col-sm-3">Processor Speed (GHz)</dt>
+            <dd class="col-sm-9">{{ $hardware->ghz }} Ghz</dd>
 
             <dt class="col-sm-3">Ram</dt>
             <dd class="col-sm-9">{{ $hardware->ram }}</dd>
