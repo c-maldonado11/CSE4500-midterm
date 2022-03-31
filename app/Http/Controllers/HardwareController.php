@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Hardware;
 use App\Models\Note;
+use App\Models\Invoice;
 use Kris\LaravelFormBuilder\FormBuilder;
 use App\Forms\HardwareForm;
 
@@ -38,7 +39,8 @@ class HardwareController extends Controller
     public function show($id)
     {
         $hardware = Hardware::find($id);
-        return view('hardware.detail', compact('hardware'));
+        $invoice = Invoice::find($id);
+        return view('hardware.detail', compact('hardware','invoice'));
     }
 
     public function edit($id, FormBuilder $formBuilder)

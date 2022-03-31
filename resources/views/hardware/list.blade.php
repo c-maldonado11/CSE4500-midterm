@@ -1,14 +1,15 @@
 @extends('adminlte::page')
 
-@section('title', 'hardware')
+@section('title', 'All Hardware')
 
 @section('content_header')
-    <h1>hardware</h1>
+    <h1>Hardware Available</h1>
 @stop
 
 @section('content')
 <div class="card">
   <div class="card-body">
+    *Click on colum name to sort
     <table id="table" class="table table-bordered sortable">
       <thead>
         <tr>

@@ -18,7 +18,7 @@ use App\Http\Controllers\NoteController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// URL::forceScheme('https');
+URL::forceScheme('https');
 
 Route::get('/', function () {
     return view('welcome');

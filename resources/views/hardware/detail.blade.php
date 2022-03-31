@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'hardware')
+@section('title', 'Hardware Details')
 
 @section('content_header')
-    <h1>hardware</h1>
+    <h1>Hardware</h1>
 @stop
 
 @section('content')
@@ -36,9 +36,9 @@
     </div>
     <span style="float:right; margin-bottom: 10px;">
         <a href="{{ route('note.create')}}?hardware={{$hardware->id}} " class="btn btn-primary">Create Note</a>
-        <a href="{{ route('hardware.edit', ['hardware'=>$hardware->id]) }} " class="btn btn-warning">Update</a>
+        <a href="{{ route('hardware.edit', ['hardware'=>$hardware->id]) }} " class="btn btn-warning">Update Hardware</a>
         <a href="{{ route('hardware.destroy',['hardware'=>$hardware->id]) }}" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('submit-form').submit();">
-        Delete</a>
+        Delete Hardware</a>
 
         <form id="submit-form" action="{{ route('hardware.destroy',['hardware'=>$hardware->id]) }}" method="POST" class="hidden">
             @csrf
@@ -67,7 +67,7 @@
             <td>
                 <span>
                 <a class="btn btn-default btn-sm" href="{{ route('note.show',['note'=>$note->id]) }}">View</a>
-                <a class="btn btn-danger btn-sm"  href="{{ route('note.destroy',['note'=>$note->id]) }}" onclick="event.preventDefault(); document.getElementById('note-submit-{!! $note->id !!}').submit();">Delete</a>
+                <a class="btn btn-danger btn-sm"  href="{{ route('note.destroy',['note'=>$note->id]) }}" onclick="event.preventDefault(); document.getElementById('note-submit-{!! $note->id !!}').submit();">Delete Note</a>
 
 
                 <form id="note-submit-{{ $note->id }}" action="{{ route('note.destroy',['note'=>$note->id]) }}" method="POST" class="hidden">
@@ -80,8 +80,29 @@
         @endforeach
       </tbody>
     </table>
+    @if (is_null($invoice))
+    @else
+    <div class="card">
+  <div class="card-body">
+    <div>
+        <div class="h1">
+            Invoice ID: {{ $invoice->id }}
+        </div>
+        <dl class="row">
+            <dt class="col-sm-3">Customer Name:</dt>
+            <dd class="col-sm-9">{{ $invoice->customer->fullname }}</dd>
 
+            <dt class="col-sm-3">Purchase Date:</dt>
+            <dd class="col-sm-9">{{ $invoice->purchase_date }}</dd>
 
+            <dt class="col-sm-3">Total Items:</dt>
+            <dd class="col-sm-9">{{ $invoice->number_of_items() }}</dd>
+
+            <dt class="col-sm-3">Total Cost:</dt>
+            <dd class="col-sm-9">${{ $invoice->total_price() }}</dd>
+        </dl>
+    </div>
+    @endif
   </div>
 </div>
 @stop

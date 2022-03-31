@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Models\Invoice;
 use Kris\LaravelFormBuilder\FormBuilder;
 use App\Forms\CustomerForm;
 
@@ -37,9 +38,11 @@ class CustomerController extends Controller
     public function show($id)
     {
         $customer = Customer::find($id);
+        $invoice = Invoice::find($id);
         // Lazy Loading
         $customer->invoices;
-        return view('customer.detail', compact('customer'));
+        
+        return view('customer.detail', compact('customer','invoice'));
     }
 
     public function edit($id, FormBuilder $formBuilder)

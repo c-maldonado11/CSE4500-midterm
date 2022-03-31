@@ -31,11 +31,11 @@ class HardwareForm extends Form
         ])
         ->add('ghz', Field::TEXT, [
             'rules' => 'required',
-            'label' => 'GHz'
+            'label' => 'Processor Speed (Ghz)'
         ])
         ->add('ram', Field::TEXT, [
             'rules' => 'required',
-            'label' => 'Ram'
+            'label' => 'Ram Amount (GB)'
         ])
         ->add('category', Field::SELECT, [
             'rules' => 'required',

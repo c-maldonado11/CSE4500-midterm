@@ -22,7 +22,25 @@ class Invoice extends Model
 
     public function hardware()
     {
-        return $this->belongsToMany(Hardware::class, 'invoice_equipment');
+        return $this->belongsToMany(Hardware::class, 'invoice_equipment')->distinct();
+    }
+
+    public function number_of_items()
+    {
+        return count($this->hardware);
+    }
+
+    public function total_price()
+    {
+        $retval = 0;
+        $hardware = $this->hardware;
+
+        foreach($hardware AS $hardware)
+        {
+            $retval +=  $hardware->price;
+        }
+
+        return $retval;
     }
 
 }

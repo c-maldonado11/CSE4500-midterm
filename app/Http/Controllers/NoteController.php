@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Hardware;
 use App\Models\Note;
+use App\Models\Invoice;
 use Kris\LaravelFormBuilder\FormBuilder;
 use App\Forms\NoteForm;
 

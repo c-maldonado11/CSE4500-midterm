@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Invoice;
+use App\Models\Hardware;
 use Kris\LaravelFormBuilder\FormBuilder;
 use App\Forms\InvoiceForm;
 
@@ -42,20 +43,53 @@ class InvoiceController extends Controller
     public function show($id)
     {
         $invoice = Invoice::find($id);
+        $hardware = Hardware::all();
         // Lazy Loading
         $invoice->customer;
         $invoice->hardware;
-        return view('invoice.detail', compact('invoice'));
+        return view('invoice.detail', compact('invoice'),["hardwares"=>$hardware]);
     }
 
-    public function edit($id)
-    {
-        //
+    public function deleteItem($invoiceID, $itemID) {
+
+        $invoice = Invoice::find($invoiceID);
+
+        $invoice->hardware()->detach($itemID);
+
+        return redirect('/invoice/' . $invoiceID);
     }
 
-    public function update(Request $request, $id)
+    public function addItem($invoiceID, $itemID) {
+        $invoice = Invoice::find($invoiceID);
+
+        $invoice->hardware()->attach($itemID);
+
+        return redirect('/invoice/' . $invoiceID);
+
+    }
+
+    public function edit($id, FormBuilder $formBuilder)
     {
-        //
+        $invoice = Invoice::find($id);
+
+        $form = $formBuilder->create(InvoiceForm::class, [
+            'method' => 'PUT',
+            'url' => route('invoice.update', ['invoice'=>$invoice->id]),
+            'model' => $invoice,
+        ]);
+        return view('invoice.create', compact('form'));
+    }
+
+
+    public function update(Request $request, $id, FormBuilder $formBuilder)
+    {
+        $form = $formBuilder->create(InvoiceForm::class);
+        $form->redirectIfNotValid();
+
+        $invoice = Invoice::find($id);
+        $invoice->update($form->getFieldValues());
+
+        return redirect('/invoice/' . $id);
     }
 
     public function destroy($id)
